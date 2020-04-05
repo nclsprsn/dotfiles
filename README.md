@@ -30,7 +30,7 @@ And remove the `~/.dotfiles` folder.
 
 ## Screenshots
 
-![Screenshot desktop](./docs/screenshot_example.png "Screenshot desktop")
+![Screenshot desktop](./docs/screenshot_example.jpg "Screenshot desktop")
 
 ## Contributing to the dotfiles
 
