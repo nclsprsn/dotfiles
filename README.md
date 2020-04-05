@@ -28,7 +28,7 @@ cat ~/.dotfiles/.installed.list | xargs rm -rf
 
 And remove the `~/.dotfiles` folder.
 
-## Contributing to the handbook
+## Contributing to the dotfiles
 
 You can discuss using the issues section. To contribute create an issue and send a pull request, see how to send a pull request.
 
