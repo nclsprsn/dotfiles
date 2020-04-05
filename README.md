@@ -38,4 +38,4 @@ You can discuss using the issues section. To contribute create an issue and send
 
 ## License
 
-The handbook is available under the Beerware license.
+The dotfiles are available under the Beerware license.
