@@ -28,6 +28,10 @@ cat ~/.dotfiles/.installed.list | xargs rm -rf
 
 And remove the `~/.dotfiles` folder.
 
+## Screenshots
+
+![Screenshot desktop](./docs/screenshot_example.png "Screenshot desktop")
+
 ## Contributing to the dotfiles
 
 You can discuss using the issues section. To contribute create an issue and send a pull request, see how to send a pull request.
