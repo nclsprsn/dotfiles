@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+source ~/.dotfiles/config/variables.sh
+
+#######################################################################
+# Global configuration
+#######################################################################
+
+# Debian/Arch
+DOTFILES_OS=$DOTFILES_VAR_ARCH
+# Server/Desktop
+DOTFILES_ENV=$DOTFILES_VAR_DESKTOP
+# Admin/User/Root
+DOTFILES_USER=$DOTFILES_VAR_USER
+
+
+#######################################################################
+# Installation configuration
+#######################################################################
+
+DOTFILES_EXCLUDE=( $DOTFILES_MOD_ZSH $DOTFILES_MOD_UI $DOTFILES_MOD_MUSIC $DOTFILES_MOD_SOUND $DOTFILES_MOD_VIDEO )
+
+source ~/.dotfiles/config/functions.sh

@@ -1,0 +1,144 @@
+
+#######################################################################
+# Description: Aliases                                                #
+#######################################################################
+
+# Load the bootstrap configuration
+source ~/.dotfiles/config/config.sh
+
+# Load the user custom aliases
+if [ -f ~/.dotfiles/custom/bash/bash_aliases ]; then
+    source ~/.dotfiles/custom/bash/bash_aliases
+fi
+
+
+#----------------------------------------------------------------------
+# Startx
+#----------------------------------------------------------------------
+
+if activated_module $DOTFILES_MOD_UI
+then
+    alias uif='eval $(ssh-agent) && startx ~/.xinitrc full'
+    alias uil='eval $(ssh-agent) && startx ~/.xinitrc light'
+fi
+
+
+#----------------------------------------------------------------------
+# Systemd
+#----------------------------------------------------------------------
+
+if isArchLinux
+then
+    alias reboot='systemctl reboot'
+    alias poweroff='systemctl poweroff'
+    alias halt='systemctl halt'
+fi
+
+
+#----------------------------------------------------------------------
+# Various
+#----------------------------------------------------------------------
+
+alias df='df -kTh'
+alias dfc='dfc -dsT'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias rm='rm -i'
+alias which='type -a'
+alias ..='cd ..'
+alias am='alsamixer'
+alias ameq='alsamixer -D equal'
+alias r='reset'
+alias c='clear'
+alias cat='ccat'
+
+
+#----------------------------------------------------------------------
+# The 'ls' family (this assumes you use a recent GNU ls)
+#----------------------------------------------------------------------
+
+alias ll='ls -l --group-directories-first'
+alias ls='ls -hF --color'  # add colors for filetype recognition
+alias la='ls -Al'          # show hidden files
+
+
+#----------------------------------------------------------------------
+# pacman
+#----------------------------------------------------------------------
+
+if isArchLinux
+then
+    alias pacmansh='find /etc -name "*.pac*" && find /etc -name "*.old"'
+fi
+
+
+#----------------------------------------------------------------------
+# sudo
+#----------------------------------------------------------------------
+
+alias su='su -'
+
+
+#----------------------------------------------------------------------
+# iptables
+#----------------------------------------------------------------------
+
+if isAdmin
+then
+    alias iptabacc='sudo iptables -P OUTPUT ACCEPT'
+    alias iptabdro='sudo iptables -P OUTPUT DROP'
+    alias iptabl='sudo iptables -L -nvx --line-numbers'
+fi
+
+
+#----------------------------------------------------------------------
+# mount
+#----------------------------------------------------------------------
+
+if isAdmin && isDesktop
+then
+    alias fatmount='sudo mount -o gid=users,fmask=113,dmask=002'
+    alias sdmount='sudo mount -t vfat'
+fi
+
+
+#------------------------------------------------------------------------------
+# Archlinux administration
+#------------------------------------------------------------------------------
+
+if isArchLinux && isAdmin
+then
+    alias updateArch='sudo pacman -Suy'
+fi
+
+
+#------------------------------------------------------------------------------
+# Debian administration
+#------------------------------------------------------------------------------
+
+if isDebian && isAdmin && isServer
+then
+    alias debianUpdate='sudo apt-get update && sudo apt-get upgrade'
+fi
+
+
+#------------------------------------------------------------------------------
+# Network
+#------------------------------------------------------------------------------
+
+# Get your external IP.
+[ -n "$(command -v curl)" ] && alias externalip='curl ifconfig.me'
+
+
+#------------------------------------------------------------------------------
+# Functions
+#------------------------------------------------------------------------------
+
+ex() {
+    chmod u+x $1
+}
+
+cp_p() {
+    rsync -WavhP $1 $2
+}

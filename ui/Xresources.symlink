@@ -1,0 +1,127 @@
+! ---------------------------------------------------------------------
+! file:     ~/.Xdefaults
+! author:   Nicolas Pierson
+! modified: March 2012
+! ---------------------------------------------------------------------
+
+
+! Xcursor -------------------------------------------------------------
+
+Xcursor.theme:    Vanilla-DMZ-AA
+Xcursor.size:     22
+
+
+! Xft settings --------------------------------------------------------
+
+Xft.antialias: true
+Xft.dpi: 92
+Xft.hinting: true
+Xft.hintstyle:  hintslight
+Xft.rgba: rgb
+
+
+! rxvt-unicode --------------------------------------------------------
+
+URxvt.imLocale:        en_EN.UTF-8
+
+! font
+urxvt*font: xft:Source Code Pro:pixelsize=12:style=Regular
+urxvt*boldFont: xft:Source Code Pro:pixelsize=12:style=Bold
+urxvt*italicFont: xft:Source Code Pro Light:pixelsize=12:style=Light,Regular
+urxvt*boldItalicFont: xft:Source Code Pro Light:pixelsize=12:style=Light,Regular
+
+URxvt.letterSpace: -2
+
+! trancparency
+urxvt*.depth: 32
+urxvt*fading: 30
+
+! general
+urxvt*termName: rxvt-unicode
+urxvt*saveLines: 32767
+urxvt*scrollBar:   false
+urxvt*scrollBar_right:   false
+urxvt*loginShell:   false
+urxvt*cursorColor:      #FD971F
+! urxvt*inheritPixmap:    false
+
+urxvt.urgentOnBell:  true
+
+! perl extensions
+urxvt*perl-ext:   default,matcher
+urxvt*url-launcher:   /usr/bin/firefox
+urxvt*matcher.button: 2
+urxvt*matcher.pattern.1: \\b(gopher|mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+urxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+
+
+! Xscreensaver --------------------------------------------------------
+
+xscreensaver.splash: false
+
+! font settings
+xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-dina-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-dina-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-dina-bold-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-dina-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-dina-bold-r-*-*-14-*-*-*-*-*-*-*
+
+! general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #ffffff
+xscreensaver.Dialog.background:         #111111
+xscreensaver.Dialog.topShadowColor:     #111111
+xscreensaver.Dialog.bottomShadowColor:  #111111
+xscreensaver.Dialog.Button.foreground:  #666666
+xscreensaver.Dialog.Button.background:  #ffffff
+
+! username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #111111
+xscreensaver.Dialog.text.background:    #ffffff
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        20
+xscreensaver.Dialog.shadowThickness:    2
+
+! timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #ff0000
+xscreensaver.passwd.thermometer.background:  #000000
+xscreensaver.passwd.thermometer.width:       8
+
+! datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+
+
+! Colors --------------------------------------------------------------
+
+! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
+! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
+
+urxvt.background: [95]#222426
+*background: #222426
+*foreground: #D2C5BC
+! BLACK
+*color0: #525252
+*color8: #707070
+! RED
+*color1: #B0777B
+*color9: #AA7E87
+! GREEN
+*color2: #94A65D
+*color10: #BACD8F
+! YELLOW
+*color3: #E8C98E
+*color11: #E0B274
+! BLUE
+*color4: #869AA3
+*color12: #96A8B7
+! MAGENTA
+*color5: #9F98B7
+*color13: #A393CE
+! CYAN
+*color6: #93A2B9
+*color14: #9BB7CC
+! WHITE
+*color7: #D2D1D4
+*color15: #D6DAC3

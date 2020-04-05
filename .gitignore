@@ -1,0 +1,26 @@
+
+#######################################################################
+# Specific project folder
+
+custom/*
+!custom/README.md
+!custom/bin/
+custom/bin/*
+!custom/bin/boot.sh.default
+
+config/config.sh
+
+.installed.list
+
+#######################################################################
+# OS
+
+# Linux
+*~
+
+
+sound
+music
+
+xmobarrc_mpd.sh
+xmobarrc_bottom.symlink.old

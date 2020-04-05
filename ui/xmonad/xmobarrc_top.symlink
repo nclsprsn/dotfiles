@@ -1,0 +1,18 @@
+
+Config { font = "xft:Sauce Code Powerline-10"
+       , bgColor = "#1C1C1C"
+       , fgColor = "#4d4d4d"
+       , borderColor = "#4d4d4d"
+       , border = NoBorder
+       , position = Top
+       , lowerOnStart = True
+       , hideOnStart = False
+       , persistent = True
+       , commands = [ Run StdinReader
+                    , Run Com "xmobarrc_openvpn.sh" [] "myOpenVPN" 60
+                    , Run Com "xmobarrc_vnstat_day.sh" [] "vnstat" 60
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{%vnstat% // %myOpenVPN% "
+       }

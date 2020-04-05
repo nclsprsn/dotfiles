@@ -1,0 +1,27 @@
+
+Config { font = "xft:Sauce Code Powerline-10"
+       , bgColor = "#1C1C1C"
+       , fgColor = "#4d4d4d"
+       , borderColor = "#4d4d4d"
+       , border = NoBorder
+       , position = Bottom
+       , lowerOnStart = True
+       , hideOnStart = False
+       , persistent = True
+       , commands = [ Run Date "<fc=#5E8D87>%a</fc>, <fc=#B5BD68>%d</fc> %b <fc=#CC6666>%H:%M:%S</fc>" "date" 10
+                    , Run BatteryP ["BAT0"]
+                      ["-t", "<acstatus>",
+                       "-L", "10", "-H", "80", "-p", "3",
+                       "--", "-i", "", "-O", "<fc=#B5BD68>AC</fc> <left>%", "-o", "<watts> <left>% <fc=#81A2BE><timeleft></fc>",
+                      "-L", "-15", "-H", "-5",
+                       "-l", "#4d4d4d", "-m", "#81A2BE", "-h", "#CC6666"] 120
+                    , Run DynNetwork ["-L","128","-H","192","--low","#4d4d4d", "--normal", "#B294BB","--high","#B294BB","-t","<fc=#5E8D87><dev></fc>:<rx>Kb|<tx>Kb"] 15
+                    , Run CoreTemp ["-t", "<core0>°|<core1>°|<core2>°",
+                       "-L", "45", "-H", "65",
+                       "-l", "#B5BD68", "-n", "#F0C674", "-h", "#CC6666"] 60
+                    , Run Com "xmobarrc_volume.sh" [] "myVolume" 60
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " }{%battery% // %dynnetwork% // %myVolume% // %coretemp% // %date% "
+       }

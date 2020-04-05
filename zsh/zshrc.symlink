@@ -1,0 +1,59 @@
+
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd extendedglob nomatch
+unsetopt beep notify
+bindkey -v
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+setopt COMPLETE_ALIASES
+zstyle ':completion::complete:*' gain-privileges 1
+
+# Load the bootstrap configuration
+source ~/.dotfiles/config/config.sh
+
+function prompt {
+
+    local color_user="%F{green}%n"
+    local color_host="%F{blue}%m"
+
+    if isAdmin
+    then
+        color_user="%B%F{green}%n%b"
+    fi
+
+    if isRoot
+    then
+        color_user="%B%F{red}%n%b"
+    fi
+
+    if isServer
+    then
+        color_host="%B%F{blue}%m%b"
+    fi
+
+    export PROMPT="%F{white}# $color_user%F{white}. $color_host%F{white}. %F{yellow}%D{%a %b %d} %fat %F{magenta}%D{%H:%M}%F{white}.%b%f %# "
+    export RPROMPT=$'%F{blue}%B%~'
+}
+
+prompt
+
+
+#------------------------------------------------------------------------------
+# Alias
+#------------------------------------------------------------------------------
+
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.dotfiles/bash/bash_aliases.symlink ]; then
+    . ~/.dotfiles/bash/bash_aliases.symlink
+fi
+

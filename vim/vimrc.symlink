@@ -1,0 +1,189 @@
+
+"----------------------------------------------------------------------
+" Begin .vimrc
+"----------------------------------------------------------------------
+
+
+"======================================================================
+" Vundle
+"======================================================================
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Bundle 'scrooloose/nerdtree'
+
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'Townk/vim-autoclose'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" JS
+Plugin 'othree/yajs.vim'
+Plugin 'othree/jsdoc-syntax.vim'
+Plugin 'bigfish/vim-js-context-coloring'
+Plugin 'heavenshell/vim-jsdoc'
+
+" Highlight
+Plugin 'sheerun/vim-polyglot'
+
+" Vue.js
+Plugin 'posva/vim-vue'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+"----------------------------------------------------------------------
+" Lightline plugin
+"----------------------------------------------------------------------
+
+"let g:lightline = {
+"      \ 'colorscheme': 'solarized',
+"      \ }
+set laststatus=2
+
+let g:airline_powerline_fonts = 1
+
+" Show PASTE if in paste mode
+let g:airline_detect_paste=1
+
+" Show airline for tabs too
+let g:airline#extensions#tabline#enabled = 1
+
+"======================================================================
+" End Vundle
+"======================================================================
+
+
+
+
+
+"======================================================================
+" Configuration
+"======================================================================
+
+
+"----------------------------------------------------------------------
+" general options
+"----------------------------------------------------------------------
+
+set autoread            " read the file if external changed
+set showmatch           " highlight the braces
+set ruler               " display the cursor position
+set showcmd             " show incomplete commands
+set undolevels=150      " undo number
+set colorcolumn=80      " display column
+set number              " display line number on the right
+set background=dark     " change the highlight colors according to the background
+set mouse=a             " enable the mouse
+set encoding=utf-8      " use UTF-8 for all new files
+set copyindent          " copy the previous indentation on autoindenting
+"set nowrap              " do not wrap lines
+set wrap                " wrap lines
+set wildmenu            " show command tab-completion menu
+set wildignore+=*.o,*.pyc,*.class,*.exe,*.pdf,*.swp,*.bak
+
+
+"----------------------------------------------------------------------
+" search
+"----------------------------------------------------------------------
+
+set hlsearch            " highlight search results
+set incsearch           " show search match immediately
+set ignorecase          " case-insensitive search
+set smartcase           " uppercase causes case-sensitive search
+
+
+"----------------------------------------------------------------------
+" tabs and indenting
+"----------------------------------------------------------------------
+
+set autoindent          " automatically indent the next line
+set smartindent         " be smart about it
+set tabstop=2           " tabs are four spaces long
+set shiftwidth=2        " n cols for autoindenting
+set expandtab           " insert spaces instead of tabs
+set softtabstop=2       " makes backspace delete 4 spaces
+
+
+"----------------------------------------------------------------------
+" colors
+"----------------------------------------------------------------------
+
+set t_Co=256
+syntax on
+"let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+"colorscheme mustang    " use a scheme
+"colorscheme vitamins   " use a scheme
+"colorscheme desert     " use a scheme
+"colorscheme solarized
+
+
+"----------------------------------------------------------------------
+" backup
+"----------------------------------------------------------------------
+
+set nobackup
+set noswapfile
+
+"----------------------------------------------------------------------
+" The NERD Tree
+"----------------------------------------------------------------------
+
+autocmd vimenter * NERDTree
+
+"autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:NERDTreeShowHidden=1
+
+map <C-n> :NERDTreeToggle<CR>
+
+"----------------------------------------------------------------------
+" Taglist
+"----------------------------------------------------------------------
+
+"autocmd VimEnter * nested :TlistOpen
+
+let Tlist_Compact_Format = 1
+let Tlist_GainFocus_On_ToggleOpen = 0
+let Tlist_Close_On_Select = 0
+let Tlist_Use_Right_Window = 1
+nnoremap <C-l> :TlistToggle<CR>
+
+
+"----------------------------------------------------------------------
+" Syntastics
+"----------------------------------------------------------------------
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"----------------------------------------------------------------------
+" EOF .vimrc
+"----------------------------------------------------------------------

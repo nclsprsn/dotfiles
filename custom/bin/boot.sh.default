@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Rename this file boot.sh and it will execute at session boot the commands
+# included in the script

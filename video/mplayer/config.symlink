@@ -1,0 +1,97 @@
+[default]
+# Sortie vidéo
+# mplayer -vo help pour avoir les sorties vidéo disponibles
+# xv est la sortie la plus rapide ; elle permet
+# aussi des ajustements de contraste, luminosité...
+#vo = vdpau,xv,
+#vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau,
+vo = vaapi,
+
+cache=10240 # (mémoire tampon maximale)
+cache-min=25 # (pourcentage minimal du tampon avant lecture)
+
+# Si vous avez des soucis avec Béryl/Compiz, vous pouvez essayer :
+# vo = x11
+
+# Et si vous avez des soucis avec le plein écran, avec Compiz
+# activé, essayez ce qui suit :
+# keepaspect = no
+# zoom = yes
+
+#Plein écran
+#fs=1
+
+# Sortie audio
+# mplayer -ao help pour avoir les sorties sont disponibles
+# L'idéal c'est alsa si votre carte supporte dmix (multicanal),
+# esd pour Gnome et arts pour KDE
+ao = alsa,oss,
+
+# l'option  channels permet d'utiliser les kits 5.1
+# On peut dupliquer des canaux avec mplayer,
+# Voir la documentation très complète à ce sujet :
+# http://www.mplayerhq.hu/DOCS/HTML/fr/advaudio.html#advaudio-channels-copying
+# (je n'ai pas de 5.1, donc pas joué avec)
+#channels = 4:4:0:2:0:0:1:3:1:1
+
+# Notez qu'il n'est pas possible d'augmenter
+# la taille des sous titres DVD,
+# il faut pour cela diminuer votre résolution
+# (les sous titres DVD sont des images)
+subfont-encoding=unicode
+unicode=yes
+utf8=yes
+subfont-text-scale = 4.5
+#nofontconfig = 1
+subfont-blur= 1 #Slight blur
+
+ass=true
+fontconfig=true
+
+# Choisir sa font TTF préférée pour les sous titres
+# (bien entendu pas pour les DVD, cf plus haut)
+#font=/usr/share/fonts/TTF/DroidSans.ttf
+
+# sous titres langue par défaut (j'aime les dvd en VO sous titré)
+slang=eng,fr,fra
+# son, langue par défaut
+alang=jpn,eng,fr,fra
+
+# Virer xscreesaver pendant le visionage \o/
+heartbeat-cmd="xscreensaver-command -deactivate &"
+
+# Masquer les fenetres d'erreurs
+#really-quiet="1"
+
+# filtres d'amélioration, ça peut ramer,
+# je l'ai commenté car pas d'améliorations notables
+#autoq=100
+#vf=pp=de,hqdn3d
+
+# La geexbox (LiveCD pour la lecture vidéo)
+# utilise cette optimisation :
+#vf=pp=hb:a/vb:a/dr:a/al:a
+
+#Privilegie FFmpeg pour les codecs vidéo
+#mplayer -vfm help
+#vfm=ffmpeg,
+
+#Privilégie FFmpeg pour les codecs audio
+#mplayer -afm help
+#afm=ffmpeg,
+
+#Augmente le volume de 20%. La valeur du max est changeable à souhait.
+#softvol=yes
+#softvol-max=120
+
+#Display
+double="yes"	   # Double buffering(recommended for subtitles)
+framedrop="1"	   # For slow machines
+hardframedrop="0"  # Make sure hard frame drop is off but can turn on easily now
+idx=yes
+
+
+fstype=none
+#lavdopts=fast=1:threads=4:skiploopfilter=all
+lavdopts=threads=4:skiploopfilter=none
+
