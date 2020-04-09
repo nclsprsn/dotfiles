@@ -19,7 +19,6 @@ config/config.sh
 *~
 
 
-sound
 music
 
 xmobarrc_mpd.sh
