@@ -1,5 +1,15 @@
 # Dotfiles
 
+These are my dotfiles. Take anything you want, but at your own risk.
+
+## Packages used overview
+
+This project required the following software
+
+  * X11
+  * urxvt
+  * Xmonad and Xmobar
+
 ## Usage
 
 ### Install
@@ -14,7 +24,7 @@ vim config/config.sh
 ./INSTALL.sh
 ```
 
-This will symlink the appropriate files in `.dotfiles` to your home directory.
+The above script will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
@@ -34,7 +44,7 @@ And remove the `~/.dotfiles` folder.
 
 ## Contributing to the dotfiles
 
-You can discuss using the issues section. To contribute create an issue and send a pull request, see how to send a pull request.
+You can discuss using the issues section. To contribute, create an issue, and send a pull request.
 
 ## License
 
