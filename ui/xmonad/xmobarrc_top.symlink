@@ -10,9 +10,8 @@ Config { font = "xft:Sauce Code Powerline-10"
        , persistent = True
        , commands = [ Run StdinReader
                     , Run Com "xmobarrc_openvpn.sh" [] "myOpenVPN" 60
-                    , Run Com "xmobarrc_vnstat_day.sh" [] "vnstat" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{%vnstat% // %myOpenVPN% "
+       , template = " %StdinReader% }{ %myOpenVPN% "
        }

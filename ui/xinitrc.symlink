@@ -31,7 +31,6 @@ xscreensaver -no-splash &
 
 if [ $1 = "full" ]; then
   xbacklight -set 100 &
-  redshift -l  45.4:-71.9 -t 5200:4200 -m vidmode &
   ~/.dotfiles/ui/bin/composite_manager.sh &
 
   # Init rxv tab
