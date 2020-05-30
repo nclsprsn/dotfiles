@@ -59,7 +59,7 @@ alias cat='ccat'
 #----------------------------------------------------------------------
 
 alias ll='ls -l --group-directories-first'
-alias ls='ls -hF --color'  # add colors for filetype recognition
+alias lf='ls -hF --color'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
 
 
