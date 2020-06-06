@@ -1,0 +1,49 @@
+
+# Misc
+foreground           #D2C5BC
+background           #222426
+selection_foreground #282828
+selection_background #fbf1c7
+url_color            #928374
+cursor               #fbf1c7
+cursor_text_color    #282828
+
+active_border_color   #928374
+inactive_border_color #928374
+bell_border_color     #928374
+
+# hard:   #1d2021
+# normal: #282828
+# soft:   #32302f
+
+# Black
+color0   #525252
+color8   #707070
+
+# Red
+color1   #B0777B
+color9   #AA7E87
+
+# Green
+color2   #94A65D
+color10  #BACD8F
+
+# Yellow
+color3   #E8C98E
+color11  #E0B274
+
+# Blue
+color4   #869AA3
+color12  #96A8B7
+
+# Magenta
+color5   #9F98B7
+color13  #A393CE
+
+# Cyan
+color6   #93A2B9
+color14  #9BB7CC
+
+# White
+color7   #D2D1D4
+color15  #D6DAC3
