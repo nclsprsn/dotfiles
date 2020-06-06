@@ -69,8 +69,8 @@ main = do
 xmobarCommandTop (S screenNumber) = unwords ["xmobar", "-x", show screenNumber, "~/.xmonad/xmobarrc_top"]
 
 myXmobarPP h screenNumber = xmobarPP {
-    ppCurrent = xmobarColor "#9A80B6" "" . wrap "" "]"
-  , ppVisible = xmobarColor "#81A2BE" "" . wrap "" ")"
+    ppCurrent = xmobarColor "#9A80B6" "" . wrap "" ""
+  , ppVisible = xmobarColor "#81A2BE" "" . wrap "" ""
   , ppTitle = shorten 256
   , ppSep = " • "
   , ppWsSep = " "
