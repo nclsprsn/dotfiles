@@ -12,6 +12,8 @@ DOTFILES_OS=$DOTFILES_VAR_ARCH
 DOTFILES_ENV=$DOTFILES_VAR_DESKTOP
 # Admin/User/Root
 DOTFILES_USER=$DOTFILES_VAR_USER
+# true/false
+DOTFILES_STARSHIP_ENABLED=false
 
 
 #######################################################################

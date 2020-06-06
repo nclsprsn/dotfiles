@@ -70,6 +70,13 @@ isUser () {
     isParameter $DOTFILES_USER $DOTFILES_VAR_USER
 }
 
+#----------------------------------------------------------------------
+# Starship
+
+isStarshipEnabled () {
+    isParameter $DOTFILES_STARSHIP_ENABLED true
+}
+
 #######################################################################
 # Example
 

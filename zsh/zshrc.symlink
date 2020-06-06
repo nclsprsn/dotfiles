@@ -42,8 +42,6 @@ function prompt {
     export RPROMPT=$'%F{blue}%B%~'
 }
 
-prompt
-
 
 #------------------------------------------------------------------------------
 # Alias
@@ -59,3 +57,11 @@ if [ -f ~/.dotfiles/bash/bash_aliases.symlink ]; then
     . ~/.dotfiles/bash/bash_aliases.symlink
 fi
 
+
+if isStarshipEnabled
+then
+    # Enable starship
+    eval "$(starship init zsh)"
+else
+    prompt
+fi

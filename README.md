@@ -7,8 +7,10 @@ These are my dotfiles. Take anything you want, but at your own risk.
 This project required the following software
 
   * X11
-  * urxvt
+  * urxvt or Kitty
   * Xmonad and Xmobar
+  * Starship
+  * Fira Code
 
 ## Usage
 
