@@ -109,7 +109,8 @@ fi
 
 if isArchLinux && isAdmin
 then
-    alias updateArch='sudo pacman -Suy'
+    alias pullk='yay -Suuy --noconfirm'
+    alias pull='yay -Suuy --noconfirm --ignore=linux-api-headers,linux-headers,linux-lts,linux'
 fi
 
 
@@ -142,3 +143,20 @@ ex() {
 cp_p() {
     rsync -WavhP $1 $2
 }
+
+#------------------------------------------------------------------------------
+# Docker
+#------------------------------------------------------------------------------
+
+alias d='docker'
+alias dps='docker ps'
+
+
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit -m '
+alias gd='git diff'
+alias gco='git checkout '
+alias gp='git push -u'
