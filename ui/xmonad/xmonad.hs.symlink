@@ -268,6 +268,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ++
   -- lock
   [ ((modMask,               0xffc5     ), safeSpawn "xscreensaver-command" ["--lock"])
+  , ((modMask,               0xffc2     ), spawn "setxkbmap us && xrandr --output eDP1 --off")
   , ((0,   0xff14                       ), safeSpawn "xscreensaver-command" ["--lock"])
   ]
   ++
