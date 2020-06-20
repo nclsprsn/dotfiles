@@ -159,4 +159,6 @@ alias gb='git branch '
 alias gc='git commit -m '
 alias gd='git diff'
 alias gco='git checkout '
-alias gp='git push -u'
+alias gpu='git push -u'
+alias gp='git pull'
+
