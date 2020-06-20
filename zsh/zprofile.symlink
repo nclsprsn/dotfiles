@@ -61,6 +61,8 @@ fi
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 #------------------------------------------------------------------------------
 # Run UI if needed
 #------------------------------------------------------------------------------
