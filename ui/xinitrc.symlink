@@ -45,7 +45,5 @@ fi
 
 #set the cursor
 xsetroot -cursor_name left_ptr
-#set keyboard
-setxkbmap fr
 #start xmonad
 exec xmonad
