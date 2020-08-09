@@ -63,6 +63,11 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+# Flutter
+export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+export JAVA_HOME='/usr/lib/jvm/java-14-openjdk'
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+
 #------------------------------------------------------------------------------
 # Run UI if needed
 #------------------------------------------------------------------------------
