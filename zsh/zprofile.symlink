@@ -45,10 +45,10 @@ export PATH=$M2:$PATH
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+if [ -e /usr/bin/virtualenvwrapper.sh ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
+if [ -e /usr/share/nvm/init-nvm.sh ]; then
     # Nodejs
     export NPM_PACKAGES="${HOME}/.npm-packages"
     export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
