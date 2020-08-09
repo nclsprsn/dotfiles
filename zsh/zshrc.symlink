@@ -6,7 +6,7 @@ setopt autocd extendedglob nomatch
 setopt HIST_IGNORE_ALL_DUPS
 setopt SHARE_HISTORY
 unsetopt beep notify
-bindkey -v
+bindkey -e
 
 autoload -Uz compinit
 compinit
