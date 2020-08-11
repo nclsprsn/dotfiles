@@ -27,7 +27,7 @@ export PATH=$PATH:/home/$USER/.dotfiles/bin
 export PATH=$PATH:/home/$USER/.dotfiles/custom/bin
 if activated_module $DOTFILES_MOD_UI && [ -d ~/.dotfiles/ui/bin ]
 then
-    export PATH=$PATH:/home/$USER/.dotfiles/ui/bin/
+    export PATH=$PATH:/home/$USER/.dotfiles/ui/bin
 fi
 
 # Java issues
@@ -45,10 +45,10 @@ export PATH=$M2:$PATH
 
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
-if [ -e /usr/bin/virtualenvwrapper.sh ]; then
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     source /usr/bin/virtualenvwrapper.sh
 fi
-if [ -e /usr/share/nvm/init-nvm.sh ]; then
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
     # Nodejs
     export NPM_PACKAGES="${HOME}/.npm-packages"
     export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"

@@ -22,12 +22,12 @@ export EDITOR=vim
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-export PATH=$PATH:/home/$USER/bin/
-export PATH=$PATH:/home/$USER/.dotfiles/bin/
+export PATH=$PATH:/home/$USER/bin
+export PATH=$PATH:/home/$USER/.dotfiles/bin
 export PATH=$PATH:/home/$USER/.dotfiles/custom/bin/
 if activated_module $DOTFILES_MOD_UI && [ -d ~/.dotfiles/ui/bin ]
 then
-    export PATH=$PATH:/home/$USER/.dotfiles/ui/bin/
+    export PATH=$PATH:/home/$USER/.dotfiles/ui/bin
 fi
 
 # Virtualenvwrapper
@@ -43,7 +43,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 # Maven
-export M2_HOME=/opt/maven/
+export M2_HOME=/opt/maven
 # Add the M2 environment variable
 export M2=$M2_HOME/bin
 # Add M2 environment variable to your path
@@ -55,11 +55,11 @@ if [ -f /usr/share/nvm/init-nvm.sh ]; then
     export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
     export PATH="$NPM_PACKAGES/bin:$PATH"
     # NVM
-    source /usr/share/nvm/init-nvm.sh;
+    source /usr/share/nvm/init-nvm.sh
 fi
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
 # command
-unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+#unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 
