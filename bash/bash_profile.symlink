@@ -50,12 +50,9 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
 if [ -f /usr/share/nvm/init-nvm.sh ]; then
-    # Nodejs
     export NPM_PACKAGES="${HOME}/.npm-packages"
     export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
     export PATH="$NPM_PACKAGES/bin:$PATH"
-    # NVM
-    source /usr/share/nvm/init-nvm.sh
 fi
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
 # command

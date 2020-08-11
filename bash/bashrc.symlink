@@ -110,3 +110,10 @@ prompt
 if [ -f ~/.dotfiles/bash/bash_aliases.symlink ]; then
     . ~/.dotfiles/bash/bash_aliases.symlink
 fi
+
+if [ -f /usr/share/nvm/init-nvm.sh ]; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/usr/share/nvm/etc/bash_completion" ] && . "/usr/share/nvm/etc/bash_completion"
+    export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
+    alias nvm="unalias nvm; [ -s "/usr/share/nvm/nvm.sh" ] && . "/usr/share/nvm/nvm.sh"; nvm $@"
+fi
