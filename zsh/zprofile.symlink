@@ -43,16 +43,6 @@ export M2=$M2_HOME/bin
 # Add M2 environment variable to your path
 export PATH=$M2:$PATH
 
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
-    export NPM_PACKAGES="${HOME}/.npm-packages"
-    export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-    export PATH="$NPM_PACKAGES/bin:$PATH"
-fi
-# Unset manpath so we can inherit from /etc/manpath via the `manpath`
-# command
-#unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Flutter
