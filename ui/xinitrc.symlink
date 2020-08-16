@@ -32,8 +32,6 @@ xscreensaver -no-splash &
 if [ $1 = "full" ]; then
   ~/.dotfiles/ui/bin/composite_manager.sh &
 
-  kitty &
-  kitty &
   kitty -e sh -c "while true; do reset; ls --color=auto /dev/sd*; echo; dfc -t -rootfs,dev,run,tmpfs,dev; sleep 15; done" &
   kitty -e htop &
   if [ -f ~/.dotfiles/custom/bin/boot.sh ]; then
