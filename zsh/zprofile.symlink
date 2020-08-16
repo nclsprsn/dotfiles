@@ -30,12 +30,6 @@ then
     export PATH=$PATH:/home/$USER/.dotfiles/ui/bin
 fi
 
-# Java issues
-# enable this for non-reparenting window managers
-export _JAVA_AWT_WM_NONREPARENTING=1
-# Erase between each update
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
-
 # Maven
 export M2_HOME=/opt/maven
 # Add the M2 environment variable
