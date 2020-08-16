@@ -50,7 +50,7 @@ main = do
   xmonad $ withUrgencyHook dzenUrgencyHook {
     args                  = ["-fn", "xft:Fira Code:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10","11","12","13"],
+    workspaces            = ["1", "2", "3.pst", "4.bck", "5.brw", "6.frt", "7", "8", "9.fl", "10.ch", "11.hm", "12.ml", "13.ntf"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     normalBorderColor     = "#1D254D",
@@ -101,17 +101,15 @@ myXmobarPP h screenNumber = xmobarPP {
 
 layoutHook' = customLayout
 customLayout = avoidStrutsOn[U, D]
-             $ onWorkspace "1" spacedHome
-             $ onWorkspace "2" myWww
-             $ onWorkspace "5" myAudioScreen
-             $ onWorkspace "4" myMovieTheater
+             $ onWorkspace "11.hm" spacedHome
+             $ onWorkspace "5.brw" myWww
+             $ onWorkspace "10.ch" myMovieTheater
              $ myOthers
 
   where
     spacedHome = named "Spacing Home" $ spacing 4 $ Tall 1 (3/100) (56/100)
     spaced = named "Spacing" $ spacing 4 $ Tall 1 (3/100) (1/2)
     tiled  = named "Tiled" $ ResizableTall 1 (2/100) (1/2) []
-    myAudioScreen = noBorders spaced
     myMovieTheater = smartBorders tiled
     myOthers = spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders Full ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
@@ -152,12 +150,11 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "2") | c <- browsers]
-  , [className =? c        --> doF (W.shift "3") | c <- navigation]
-  , [className =? c        --> doF (W.shift "4") | c <- videos]
-  , [className =? c        --> doF (W.shift "5") | c <- music]
-  , [className =? c        --> doF (W.shift "11") | c <- confmanagement]
-  , [className =? c        --> doF (W.shift "13") | c <- mail]
+  , [className =? c        --> doF (W.shift "5.brw") | c <- browsers]
+  , [className =? c        --> doF (W.shift "9.fl") | c <- navigation]
+  , [className =? c        --> doF (W.shift "10.ch") | c <- videos]
+  , [className =? c        --> doF (W.shift "12.ml") | c <- mail]
+  , [className =? c        --> doF (W.shift "13.ntf") | c <- notifications]
   , [maybeToDefinite (isFullscreen -?> doFullFloat)]
   ]
 
@@ -165,12 +162,11 @@ myManageHook = composeAll . concat $
     myOtherFloats = ["Add-ons", "Downloads", "Firefox Preferences", "Save As...", "Send file", "Open", "File Transfers"]
     myIgnores = ["trayer", "stalonetray"]
     myFloats = ["vdpau", "mpv"]
-    browsers = ["firefox", "Chromium"]
-    confmanagement = ["Evince"]
-    videos = ["vdpau", "MPlayer", "Vlc", "Smplayer", "mpv"]
+    browsers = ["firefox", "Chromium", "Navigator"]
+    videos = ["vdpau", "MPlayer", "Vlc", "Smplayer", "mpv", "Spotify"]
     navigation = ["Nautilus", "Spacefm","Nemo"]
-    music = []
     mail = ["Thunderbird"]
+    notifications = ["Slack"]
 
 startupHook' = startup
 
