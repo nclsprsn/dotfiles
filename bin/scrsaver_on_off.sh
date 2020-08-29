@@ -14,5 +14,5 @@ while true; do
     then
         screenfetch
     fi
-	sleep 1m;
+	sleep 30;
 done
