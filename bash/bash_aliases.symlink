@@ -151,8 +151,7 @@ cp_p() {
 alias d='docker'
 alias dps='docker ps'
 
-
-
+alias g='git '
 alias gs='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -161,4 +160,3 @@ alias gd='git diff'
 alias gco='git checkout '
 alias gpu='git push -u'
 alias gp='git pull'
-
