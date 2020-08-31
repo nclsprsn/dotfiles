@@ -98,6 +98,7 @@ set copyindent          " copy the previous indentation on autoindenting
 set wrap                " wrap lines
 set wildmenu            " show command tab-completion menu
 set wildignore+=*.o,*.pyc,*.class,*.exe,*.pdf,*.swp,*.bak
+set relativenumber
 
 
 "----------------------------------------------------------------------
