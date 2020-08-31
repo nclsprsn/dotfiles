@@ -113,7 +113,7 @@ install_dotfiles () {
 
     local overwrite_all=false backup_all=false skip_all=false
 
-    for src in $(find "$DOTFILES_ROOT" -maxdepth 4 -name '*.symlink')
+    for src in $(find "$DOTFILES_ROOT" -maxdepth 5 -name '*.symlink')
     do
 
         begin=${src#`pwd`/*}
