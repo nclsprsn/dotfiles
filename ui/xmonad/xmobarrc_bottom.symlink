@@ -20,7 +20,7 @@ Config { font = "xft:Fira Code-10"
                        "-L", "45", "-H", "65",
                        "-l", "#B5BD68", "-n", "#F0C674", "-h", "#CC6666"] 60
                     , Run Com "xmobarrc_volume.sh" [] "myVolume" 60
-                    , Run Com "progression.sh" [] "progession" 60
+                    , Run Com "progression.sh" [] "progression" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
