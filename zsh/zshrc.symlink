@@ -4,7 +4,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob nomatch
 setopt HIST_IGNORE_ALL_DUPS
-setopt SHARE_HISTORY
 unsetopt beep notify
 bindkey -e
 
@@ -14,6 +13,16 @@ compinit
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 zstyle ':completion::complete:*' gain-privileges 1
+
+# Load zsh plugin if the exists
+for zsh_plugin in /usr/share/zsh/plugins/*/*.plugin.zsh
+do
+    source $zsh_plugin
+done
+
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
 
 # Load the bootstrap configuration
 source ~/.dotfiles/config/config.sh
