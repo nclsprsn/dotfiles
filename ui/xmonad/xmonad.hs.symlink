@@ -50,7 +50,7 @@ main = do
   xmonad $ withUrgencyHook dzenUrgencyHook {
     args                  = ["-fn", "xft:Fira Code:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["1.pst", "2.bck", "3.brw", "4.frt", "5", "6", "7.ntf", "8", "9", "10.pst", "11.bck", "12.brw", "13.frt"],
+    workspaces            = ["1", "2.pst", "3.bck", "4.brw", "5.frt", "6", "7.ntf", "8", "_9.pst", "_10.bck", "_11.brw", "_12.frt", "13"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     normalBorderColor     = "#1D254D",
@@ -69,8 +69,9 @@ main = do
 xmobarCommandTop (S screenNumber) = unwords ["xmobar", "-x", show screenNumber, "~/.xmonad/xmobarrc_top"]
 
 myXmobarPP h screenNumber = xmobarPP {
-    ppCurrent = xmobarColor "#9A80B6" "" . wrap "" ""
-  , ppVisible = xmobarColor "#81A2BE" "" . wrap "" ""
+    ppCurrent = xmobarColor "#CF9C90" "" . wrap "" "*"
+  , ppVisible = xmobarColor "#CFBC90" "" . wrap "" ""
+  , ppHidden = xmobarColor "#99AE75" "" . wrap "" ""
   , ppTitle = shorten 256
   , ppSep = " • "
   , ppWsSep = " "
@@ -102,8 +103,8 @@ myXmobarPP h screenNumber = xmobarPP {
 layoutHook' = customLayout
 customLayout = avoidStrutsOn[U, D]
 --             $ onWorkspace "11.hm" spacedHome
-             $ onWorkspace "3.brw" myWww
-             $ onWorkspace "12.brw" myWww
+             $ onWorkspace "4.brw" myWww
+             $ onWorkspace "_11.brw" myWww
 --             $ onWorkspace "10.ch" myMovieTheater
              $ myOthers
 
@@ -151,7 +152,7 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "3.brw") | c <- browsers]
+  , [className =? c        --> doF (W.shift "4.brw") | c <- browsers]
 --  , [className =? c        --> doF (W.shift "9.fl") | c <- navigation]
 --  , [className =? c        --> doF (W.shift "10.ch") | c <- videos]
   , [className =? c        --> doF (W.shift "7.ntf") | c <- mail]
@@ -273,4 +274,3 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   [ ((0,   xF86XK_MonBrightnessUp       ), safeSpawn "xbacklight" ["-inc", "10", "-time", "1", "-steps", "1"])
   , ((0,   xF86XK_MonBrightnessDown     ), safeSpawn "xbacklight" ["-dec", "10", "-time", "1", "-steps", "1"])
   ]
-
