@@ -50,7 +50,7 @@ main = do
   xmonad $ withUrgencyHook dzenUrgencyHook {
     args                  = ["-fn", "xft:Fira Code:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["1", "2", "3.pst", "4.bck", "5.brw", "6.frt", "7", "8", "9.fl", "10.ch", "11.hm", "12.ml", "13.ntf"],
+    workspaces            = ["1.pst", "2.bck", "3.brw", "4.frt", "5", "6", "7.ntf", "8", "9", "10.pst", "11.bck", "12.brw", "13.frt"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     normalBorderColor     = "#1D254D",
@@ -101,9 +101,10 @@ myXmobarPP h screenNumber = xmobarPP {
 
 layoutHook' = customLayout
 customLayout = avoidStrutsOn[U, D]
-             $ onWorkspace "11.hm" spacedHome
-             $ onWorkspace "5.brw" myWww
-             $ onWorkspace "10.ch" myMovieTheater
+--             $ onWorkspace "11.hm" spacedHome
+             $ onWorkspace "3.brw" myWww
+             $ onWorkspace "12.brw" myWww
+--             $ onWorkspace "10.ch" myMovieTheater
              $ myOthers
 
   where
@@ -150,11 +151,11 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "5.brw") | c <- browsers]
-  , [className =? c        --> doF (W.shift "9.fl") | c <- navigation]
-  , [className =? c        --> doF (W.shift "10.ch") | c <- videos]
-  , [className =? c        --> doF (W.shift "12.ml") | c <- mail]
-  , [className =? c        --> doF (W.shift "13.ntf") | c <- notifications]
+  , [className =? c        --> doF (W.shift "3.brw") | c <- browsers]
+--  , [className =? c        --> doF (W.shift "9.fl") | c <- navigation]
+--  , [className =? c        --> doF (W.shift "10.ch") | c <- videos]
+  , [className =? c        --> doF (W.shift "7.ntf") | c <- mail]
+  , [className =? c        --> doF (W.shift "7.ntf") | c <- notifications]
   , [maybeToDefinite (isFullscreen -?> doFullFloat)]
   ]
 
