@@ -160,3 +160,7 @@ alias gd='git diff'
 alias gco='git checkout '
 alias gpu='git push -u'
 alias gp='git pull'
+
+gcp() {
+    ga -A && gc $1 && git push
+}
