@@ -7,6 +7,9 @@ custom/*
 !custom/bin/
 custom/bin/*
 !custom/bin/boot.sh.default
+!custom/bin/c.default
+!custom/bin/f.default
+
 
 config/config.sh
 
