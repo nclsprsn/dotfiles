@@ -79,9 +79,9 @@ myXmobarPP h screenNumber = xmobarPP {
   , ppOutput = hPutStrLn h
   , ppLayout  = xmobarColor "#B5BD68" "" . ppLayoutName
 } where ppLayoutName x = case x of
+                         "Full"               -> "·"
                          "Tall"               -> "·:"
                          "ThreeCol"           -> "·::"
-                         "Full"               -> "·"
                          "Grid"               -> "::"
                          "Spacing"            -> "·:"
                          "Spacing 1 Tall"     -> "·:"
