@@ -40,9 +40,16 @@ export PATH=$M2:$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Flutter
-export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
-export JAVA_HOME='/usr/lib/jvm/java-14-openjdk'
+export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions'
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 export ANDROID_SDK_ROOT='/opt/android-sdk'
+
+# Android SDK
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools/
+export PATH=$PATH:$ANDROID_HOME/tools/bin/
+export PATH=$PATH:$ANDROID_HOME/tools/
+PATH=$ANDROID_HOME/emulator:$PATH
 
 #------------------------------------------------------------------------------
 # Run UI if needed
@@ -51,3 +58,9 @@ export ANDROID_SDK_ROOT='/opt/android-sdk'
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     eval $(ssh-agent) && startx ~/.xinitrc full
 fi
+
+export PATH="$PATH:~/.dotnet/tools"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
