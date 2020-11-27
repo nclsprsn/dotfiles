@@ -9,7 +9,7 @@ include "/usr/share/themes/Arc/gtk-2.0/gtkrc"
 #      FONTES      #
 ####################
 
-gtk-font-name = "Source Code Pro 10"
+gtk-font-name = "Source Code Pro 9"
 
 ####################
 #      ICONES      #
