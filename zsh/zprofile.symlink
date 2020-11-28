@@ -51,6 +51,8 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin/
 export PATH=$PATH:$ANDROID_HOME/tools/
 PATH=$ANDROID_HOME/emulator:$PATH
 
+export AWS_VAULT_BACKEND=file
+
 #------------------------------------------------------------------------------
 # Run UI if needed
 #------------------------------------------------------------------------------
