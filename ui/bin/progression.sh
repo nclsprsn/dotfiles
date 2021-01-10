@@ -24,7 +24,7 @@ life=`python -c "print('{:0.4f}'.format($(($(date +%s) - $(date -d"2015-01-01 00
 
 oneYear=`python -c "print('{:0.4f}'.format((3600*24*365)*100/(17*365*24*3600)))"`
 
-ratio=`python -c "print('{:0.4f}'.format($(($(date +%s) - $(date -d"2020-01-01 00:00:00" +%s)))*100/(365*24*3600)))"`
+ratio=`python -c "print('{:0.4f}'.format($(($(date +%s) - $(date -d"2020-12-31 00:00:00" +%s)))*100/(365*24*3600)))"`
 
 oneDay=`python -c "print('{:0.4f}'.format((3600*24)*100/(365*24*3600)))"`
 
