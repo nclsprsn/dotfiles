@@ -10,8 +10,9 @@ Config { font = "xft:Fira Code-10"
        , persistent = True
        , commands = [ Run StdinReader
                     , Run Com "xmobarrc_openvpn.sh" [] "myOpenVPN" 60
+                    , Run Com "xmobarrc_ip.sh" [] "myIp" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %myOpenVPN% "
+       , template = " %StdinReader% }{ %myIp% %myOpenVPN% "
        }
