@@ -50,7 +50,7 @@ main = do
   xmonad $ withUrgencyHook dzenUrgencyHook {
     args                  = ["-fn", "xft:Fira Code:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["1", "2.pst", "3.bck", "4.brw", "5.frt", "6", "7.ntf", "8", "_9.pst", "_10.bck", "_11.brw", "_12.frt", "13"],
+    workspaces            = ["1", "2", "3", "4", "5"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     normalBorderColor     = "#1D254D",
@@ -60,13 +60,12 @@ main = do
     layoutHook            = layoutHook',
     handleEventHook       = handleEventHook defaultConfig <+> docksEventHook,
     logHook               = mapM_ dynamicLogWithPP $ zipWith myXmobarPP t [0..nScreens],
-    startupHook           = startupHook',
     keys                  = keys'
 }
 
 -------------------- loghooks --------------------
 
-xmobarCommandTop (S screenNumber) = unwords ["xmobar", "-x", show screenNumber, "~/.xmonad/xmobarrc_top"]
+xmobarCommandTop (S screenNumber) = unwords ["xmobar", "-x", show screenNumber, "~/.xmonad/xmobarrc_mini"]
 
 myXmobarPP h screenNumber = xmobarPP {
     ppCurrent = xmobarColor "#CF9C90" "" . wrap "" "*"
@@ -102,10 +101,6 @@ myXmobarPP h screenNumber = xmobarPP {
 
 layoutHook' = customLayout
 customLayout = avoidStrutsOn[U, D]
---             $ onWorkspace "11.hm" spacedHome
-             $ onWorkspace "4.brw" myWww
-             $ onWorkspace "_11.brw" myWww
---             $ onWorkspace "10.ch" myMovieTheater
              $ myOthers
 
   where
@@ -113,13 +108,13 @@ customLayout = avoidStrutsOn[U, D]
     spaced = named "Spacing" $ spacing 4 $ Tall 1 (3/100) (1/2)
     tiled  = named "Tiled" $ ResizableTall 1 (2/100) (1/2) []
     myMovieTheater = smartBorders tiled
-    myOthers = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
+    myOthers = noBorders Full ||| spaced ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed)
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
     myTabbed = tabbed shrinkText defaultTheme {
-      fontName = "xft:Sauce Code Powerline:size=12",
+      fontName = "xft:Fira Code:style=Regular:pixelsize=10",
       activeColor = "#4D4D4D",
       activeTextColor = "#CD5C5C",
-      decoHeight = 20
+      decoHeight = 12
   }
 
 
@@ -152,11 +147,9 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "4.brw") | c <- browsers]
---  , [className =? c        --> doF (W.shift "9.fl") | c <- navigation]
---  , [className =? c        --> doF (W.shift "10.ch") | c <- videos]
-  , [className =? c        --> doF (W.shift "7.ntf") | c <- mail]
-  , [className =? c        --> doF (W.shift "7.ntf") | c <- notifications]
+  , [className =? c        --> doF (W.shift "1") | c <- browsers]
+  , [className =? c        --> doF (W.shift "5") | c <- mail]
+  , [className =? c        --> doF (W.shift "5") | c <- notifications]
   , [maybeToDefinite (isFullscreen -?> doFullFloat)]
   ]
 
@@ -169,13 +162,6 @@ myManageHook = composeAll . concat $
     navigation = ["Nautilus", "Spacefm","Nemo"]
     mail = ["Thunderbird"]
     notifications = ["Slack"]
-
-startupHook' = startup
-
-startup :: X ()
-startup = do
-            spawn "xmobar -x 0 ~/.xmonad/xmobarrc_bottom"
-            spawn "xmobar -x 1 ~/.xmonad/xmobarrc_bottom"
 
 -------------------- keybinds --------------------
 

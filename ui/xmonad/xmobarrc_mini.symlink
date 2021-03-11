@@ -1,0 +1,25 @@
+Config { font = "xft:Fira Code-10"
+       , bgColor = "#1C1C1C"
+       , fgColor = "#4d4d4d"
+       , borderColor = "#4d4d4d"
+       , border = NoBorder
+       , position = Bottom
+       , lowerOnStart = True
+       , hideOnStart = False
+       , allDesktops = True
+       , persistent = True
+       , commands = [ Run StdinReader
+                    , Run Date "<fc=#5E8D87>%F</fc>T%T+07:00" "date" 10
+                    , Run Com "xmobarrc_ip.sh" [] "myIp" 60
+                    , Run DynNetwork ["-L","128","-H","192","--low","#4d4d4d", "--normal", "#B294BB","--high","#B294BB","-t","<fc=#5E8D87><dev></fc>:<rx>Kb <tx>Kb"] 15
+                    , Run BatteryP ["BAT0"]
+                      ["-t", "<acstatus>",
+                       "-L", "10", "-H", "80", "-p", "3",
+                       "--", "-i", "", "-O", "<fc=#B5BD68>AC</fc> <left>%", "-o", "<watts> <left>% <fc=#81A2BE><timeleft></fc>",
+                      "-L", "-15", "-H", "-5",
+                       "-l", "#4d4d4d", "-m", "#81A2BE", "-h", "#CC6666"] 120
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ %battery% • %dynnetwork% • %myIp% • %date% "
+       }
