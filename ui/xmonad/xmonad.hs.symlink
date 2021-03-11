@@ -108,7 +108,7 @@ customLayout = avoidStrutsOn[U, D]
     spaced = named "Spacing" $ spacing 4 $ Tall 1 (3/100) (1/2)
     tiled  = named "Tiled" $ ResizableTall 1 (2/100) (1/2) []
     myMovieTheater = smartBorders tiled
-    myOthers = spaced |||| noBorders Full ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed)
+    myOthers = spaced ||| noBorders Full ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed)
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
     myTabbed = tabbed shrinkText defaultTheme {
       fontName = "xft:Fira Code:style=Regular:pixelsize=10",
