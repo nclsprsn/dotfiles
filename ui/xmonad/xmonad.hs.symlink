@@ -114,7 +114,8 @@ customLayout = avoidStrutsOn[U, D]
       fontName = "xft:Fira Code:style=Regular:pixelsize=10",
       activeColor = "#4D4D4D",
       activeTextColor = "#B294BB",
-      decoHeight = 14
+      decoHeight = 14,
+      activeBorderColor = "#4D4D4D",
   }
 
 
