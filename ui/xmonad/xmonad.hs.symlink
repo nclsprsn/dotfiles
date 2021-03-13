@@ -115,7 +115,7 @@ customLayout = avoidStrutsOn[U, D]
       activeColor = "#4D4D4D",
       activeTextColor = "#B294BB",
       decoHeight = 14,
-      activeBorderColor = "#4D4D4D",
+      activeBorderColor = "#4D4D4D"
   }
 
 
