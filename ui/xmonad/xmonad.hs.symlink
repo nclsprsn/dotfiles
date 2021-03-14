@@ -78,23 +78,25 @@ myXmobarPP h screenNumber = xmobarPP {
   , ppOutput = hPutStrLn h
   , ppLayout  = xmobarColor "#B5BD68" "" . ppLayoutName
 } where ppLayoutName x = case x of
-                         "Spacing"            -> "·:"
-                         "Full"               -> "·"
-                         "Tall"               -> "·:"
-                         "ThreeCol"           -> "·::"
-                         "Grid"               -> "::"
-                         "Spacing 1 Tall"     -> "·:"
-                         "Spacing 1 ThreeCol" -> "·::"
-                         "Spacing 1 Full"     -> "·"
-                         "Spacing 1 Grid"     -> "::"
-                         "SimplestFloat"      -> "*"
-                         "Tiled"              -> "·:"
-                         "Tabbed Simplest"    -> "_"
+                         "Spacing"                     -> "·:"
+                         "Full"                        -> "·"
+                         "Tall"                        -> "·:"
+                         "ThreeCol"                    -> "·::"
+                         "Grid"                        -> "::"
+                         "Spacing 1 Tall"              -> "·:"
+                         "Spacing 1 ThreeCol"          -> "·::"
+                         "Spacing 1 Full"              -> "·"
+                         "Spacing 1 Grid"              -> "::"
+                         "SimplestFloat"               -> "*"
+                         "Tiled"                       -> "·:"
+                         "Tabbed Simplest"             -> "_"
+                         "Spacing Tabbed"              -> "·_"
                          "Mastered Tabbed Simplest"    -> "·_"
-                         "Spiral"             -> "@"
-                         "Mirror Tiled"       -> "-"
-                         "Spacing Home"       -> "$"
-                         _                    -> x
+                         "Spiral"                      -> "@"
+                         "Mirror Tiled"                -> "-"
+                         "Spacing Mirror Tiled"        -> "-"
+                         "Spacing Home"                -> "$"
+                         _                             -> x
 
 
 -------------------- layouthooks --------------------
@@ -106,9 +108,11 @@ customLayout = avoidStrutsOn[U, D]
   where
     spacedHome = named "Spacing Home" $ spacing 4 $ Tall 1 (3/100) (56/100)
     spaced = named "Spacing" $ spacing 4 $ Tall 1 (3/100) (1/2)
+    spacedMirrorTiled = named "Spacing Mirror Tiled" $ spacing 4 $ Mirror tiled
     tiled  = named "Tiled" $ ResizableTall 1 (2/100) (1/2) []
     myMovieTheater = smartBorders tiled
-    myOthers = spaced ||| noBorders Full ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed)
+    spacedTabbed = named "Spacing Tabbed" $ spacing 4 $ myTabbed
+    myOthers = spaced ||| noBorders Full ||| spacedMirrorTiled ||| spacedTabbed
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
     myTabbed = tabbed shrinkText defaultTheme {
       fontName = "xft:Fira Code:style=Regular:pixelsize=10",
