@@ -25,10 +25,10 @@ Xft.rgba: rgb
 URxvt.imLocale:        en_EN.UTF-8
 
 ! font (fc-list)
-URxvt*font: xft:Fira Code:style=Regular:pixelsize=12
-URxvt*boldFont: xft:Fira Code:style=Bold:pixelsize=12
-URxvt*italicFont: xft:Fira Code,Fira Code Light:style=Light,Regular:pixelsize=12
-URxvt*boldItalicFont: xft:Fira Code,Fira Code SemiBold:style=SemiBold,Regular:pixelsize=12
+URxvt*font: xft:Source Code Pro:style=SemiBold:pixelsize=12
+URxvt*boldFont: xft:Source Code Pro:style=Bold:pixelsize=12
+URxvt*italicFont: xft:Source Code Pro:style=ExtraLight,Regular:pixelsize=12
+URxvt*boldItalicFont: xft:Source Code Pro:style=Bold:pixelsize=12
 
 URxvt.letterSpace: -2
 

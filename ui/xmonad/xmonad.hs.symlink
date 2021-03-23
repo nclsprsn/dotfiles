@@ -48,7 +48,7 @@ main = do
   nScreens   <- countScreens
   t          <- mapM (spawnPipe . xmobarCommandTop) [0 .. nScreens-1]
   xmonad $ withUrgencyHook dzenUrgencyHook {
-    args                  = ["-fn", "xft:Fira Code:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
+    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
     workspaces            = ["1", "2", "3", "4", "5"],
     modMask               = mod4Mask,
@@ -115,7 +115,7 @@ customLayout = avoidStrutsOn[U, D]
     myOthers = spaced ||| noBorders Full ||| spacedMirrorTiled ||| spacedTabbed
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
     myTabbed = tabbed shrinkText defaultTheme {
-      fontName = "xft:Fira Code:style=Regular:pixelsize=10",
+      fontName = "xft:Source Code Pro:style=SemiBold:pixelsize=9",
       activeColor = "#4D4D4D",
       activeTextColor = "#B294BB",
       decoHeight = 14,
@@ -176,7 +176,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --launching/killing
   [ ((modMask,               xK_Return  ), spawn $ XMonad.terminal conf)
   , ((modMask,               xK_x       ), kill)
-  , ((modMask,               xK_r       ), safeSpawn "dmenu_run" ["-f", "-fn", "Fira Code-10", "-nb", "#131313", "-nf", "#888888", "-sb", "#2A2A2A", "-sf", "#62ACB2"])
+  , ((modMask,               xK_r       ), safeSpawn "dmenu_run" ["-f", "-fn", "Source Code Pro SemiBold-9", "-nb", "#131313", "-nf", "#888888", "-sb", "#2A2A2A", "-sf", "#62ACB2"])
 
   --layouts
   , ((modMask,               xK_space   ), sendMessage NextLayout)
