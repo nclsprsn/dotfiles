@@ -9,15 +9,31 @@ Config { font = "xft:Source Code Pro SemiBold-10"
        , allDesktops = True
        , persistent = True
        , commands = [ Run StdinReader
-                    , Run Date "<fc=#5E8D87>%F</fc>T%T+07:00" "date" 10
-                    , Run Com "xmobarrc_ip.sh" [] "myIp" 60
-                    , Run DynNetwork ["-L","128","-H","192","--low","#4d4d4d", "--normal", "#B294BB","--high","#B294BB","-t","<fc=#5E8D87><dev></fc>:<rx>Kb <tx>Kb"] 15
+                    , Run Date "<fc=#5E8D87>%F</fc> %T" "date" 10
+                    , Run Com "xmobarrc_ip.sh" [
+                                               ] "myIp" 60
+                    , Run DynNetwork [ "--Low",        "1024000"
+                                     , "--High",       "5120000"
+                                     , "--low",        "#4D4D4D"
+                                     , "--normal",     "#5E8D87"
+                                     , "--high",       "#94A65D"
+                                     , "--template",   "<dev> <rx>kB/s <tx>kB/s"
+                                     ] 15
                     , Run BatteryP ["BAT0"]
-                      ["-t", "<acstatus>",
-                       "-L", "10", "-H", "80", "-p", "3",
-                       "--", "-i", "", "-O", "<fc=#B5BD68>AC</fc> <left>%", "-o", "<watts> <left>% <fc=#81A2BE><timeleft></fc>",
-                      "-L", "-15", "-H", "-5",
-                       "-l", "#4d4d4d", "-m", "#81A2BE", "-h", "#CC6666"] 120
+                                   [ "-t", "<acstatus>"
+                                   , "-L", "15"
+                                   , "-H", "85"
+                                   , "-p", "3"
+                                   , "--"
+                                   , "-i", ""
+                                   , "-O", "<fc=#B5BD68>AC</fc> <left>%"
+                                   , "-o", "<watts> <left>% <fc=#81A2BE><timeleft></fc>"
+                                   , "-L", "-15"
+                                   , "-H", "-5"
+                                   , "-l", "#4d4d4d"
+                                   , "-m", "#81A2BE"
+                                   , "-h", "#CC6666"
+                                   ] 120
                     ]
        , sepChar = "%"
        , alignSep = "}{"
