@@ -1,5 +1,5 @@
 [global]
-font = Fira Code 10
+font = Source Code Pro SemiBold 9
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
