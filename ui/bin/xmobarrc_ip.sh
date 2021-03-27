@@ -6,4 +6,11 @@ ip=`echo $cloudflare | awk -F"[ =]" '{printf "%s",$6}'`
 filteredIp=`echo $ip | awk -F '.' '{print $1"."$2"."$3".xxx"}'`
 loc=`echo $cloudflare | awk -F"[ =]" '{printf "%s",$18}'`
 
-echo $filteredIp $loc
+network=''
+
+if [[ $ip == 159.* ]]; then
+  network='<fc=#94A65D>PR</fc>'
+fi
+
+echo $filteredIp $loc $network
+
