@@ -40,16 +40,16 @@ export PATH=$M2:$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # Flutter
-export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions'
-export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
-export ANDROID_SDK_ROOT='/opt/android-sdk'
+#export JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions'
+#export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+#export ANDROID_SDK_ROOT='/opt/android-sdk'
 
 # Android SDK
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools/
-export PATH=$PATH:$ANDROID_HOME/tools/bin/
-export PATH=$PATH:$ANDROID_HOME/tools/
-PATH=$ANDROID_HOME/emulator:$PATH
+#export PATH=$PATH:$ANDROID_HOME/emulator
+#export PATH=$PATH:$ANDROID_HOME/platform-tools/
+#export PATH=$PATH:$ANDROID_HOME/tools/bin/
+#export PATH=$PATH:$ANDROID_HOME/tools/
+#PATH=$ANDROID_HOME/emulator:$PATH
 
 export AWS_VAULT_BACKEND=file
 
