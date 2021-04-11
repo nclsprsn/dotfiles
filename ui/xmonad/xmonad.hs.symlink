@@ -19,6 +19,7 @@ import XMonad.Hooks.UrgencyHook
 -- fullscreen for firefox
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 
 --MO' HOOKS
 import Foreign.C.Types (CLong)
@@ -53,6 +54,7 @@ main = do
     workspaces            = ["1", "2", "3", "4", "5"],
     modMask               = mod4Mask,
     borderWidth           = 1,
+    startupHook           = setWMName "LG3D",
     normalBorderColor     = "#1D254D",
     focusedBorderColor    = "#562460",
     terminal              = "kitty",
