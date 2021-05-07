@@ -31,6 +31,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin '907th/vim-auto-save'
 
 " JS
 Plugin 'othree/yajs.vim'
@@ -43,6 +44,8 @@ Plugin 'sheerun/vim-polyglot'
 
 " Vue.js
 Plugin 'posva/vim-vue'
+
+Plugin 'w0ng/vim-hybrid'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -94,8 +97,7 @@ set background=dark     " change the highlight colors according to the backgroun
 set mouse=a             " enable the mouse
 set encoding=utf-8      " use UTF-8 for all new files
 set copyindent          " copy the previous indentation on autoindenting
-"set nowrap              " do not wrap lines
-set wrap                " wrap lines
+set wrap linebreak      " wrap lines
 set wildmenu            " show command tab-completion menu
 set wildignore+=*.o,*.pyc,*.class,*.exe,*.pdf,*.swp,*.bak
 set relativenumber
@@ -129,13 +131,7 @@ set softtabstop=2       " makes backspace delete 4 spaces
 
 set t_Co=256
 syntax on
-"let g:hybrid_use_Xresources = 1
 colorscheme hybrid
-"colorscheme mustang    " use a scheme
-"colorscheme vitamins   " use a scheme
-"colorscheme desert     " use a scheme
-"colorscheme solarized
-
 
 "----------------------------------------------------------------------
 " backup
@@ -148,16 +144,30 @@ set noswapfile
 " The NERD Tree
 "----------------------------------------------------------------------
 
-autocmd vimenter * NERDTree
-
-"autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 let g:NERDTreeShowHidden=1
 
-map <C-n> :NERDTreeToggle<CR>
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * silent NERDTreeMirror
+
+map <F5> :NERDTreeToggle<CR>
 
 "----------------------------------------------------------------------
 " Taglist
@@ -185,6 +195,17 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+
+
+"----------------------------------------------------------------------
+" Autosave
+"----------------------------------------------------------------------
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
+
+
 "----------------------------------------------------------------------
 " EOF .vimrc
 "----------------------------------------------------------------------
+
