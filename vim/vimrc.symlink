@@ -47,6 +47,8 @@ Plugin 'posva/vim-vue'
 
 Plugin 'w0ng/vim-hybrid'
 
+Plugin 'junegunn/vim-easy-align'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -204,6 +206,12 @@ let g:syntastic_check_on_wq = 0
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
 
+"----------------------------------------------------------------------
+" Easy Align
+"----------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
 "----------------------------------------------------------------------
 " EOF .vimrc
