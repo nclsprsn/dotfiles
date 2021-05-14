@@ -161,6 +161,13 @@ alias gco='git checkout '
 alias gpu='git push -u'
 alias gp='git pull'
 
-gcp() {
+gcap() {
     ga -A && gc $1 && git push
 }
+
+gcp() {
+    gc $1 && git push
+}
+
+alias ssl_certificate='openssl s_client -showcerts -connect'
+
