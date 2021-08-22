@@ -80,3 +80,12 @@ then
 else
     prompt
 fi
+
+if [ -f /opt/google-cloud-sdk/completion.zsh.inc ]; then
+    . /opt/google-cloud-sdk/completion.zsh.inc
+fi
+
+if [ -f /opt/google-cloud-sdk/path.zsh.inc ]; then
+    . /opt/google-cloud-sdk/path.zsh.inc
+fi
+
