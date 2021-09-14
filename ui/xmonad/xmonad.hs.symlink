@@ -49,7 +49,8 @@ main = do
   nScreens   <- countScreens
   t          <- mapM (spawnPipe . xmobarCommandTop) [0 .. nScreens-1]
   xmonad $ withUrgencyHook dzenUrgencyHook {
-    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
+--    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
+    args                  = ["-fn", "xft:Ubuntu Mono:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
     workspaces            = ["1", "2", "3", "4", "5", "_"],
     modMask               = mod4Mask,
@@ -178,7 +179,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   --launching/killing
   [ ((modMask,               xK_Return  ), spawn $ XMonad.terminal conf)
   , ((modMask,               xK_x       ), kill)
-  , ((modMask,               xK_r       ), safeSpawn "dmenu_run" ["-f", "-fn", "Source Code Pro SemiBold-9", "-nb", "#131313", "-nf", "#888888", "-sb", "#2A2A2A", "-sf", "#62ACB2"])
+  , ((modMask,               xK_r       ), safeSpawn "dmenu_run" ["-f", "-fn", "Ubuntu Mono-12", "-nb", "#131313", "-nf", "#888888", "-sb", "#2A2A2A", "-sf", "#62ACB2"])
 
   --layouts
   , ((modMask,               xK_space   ), sendMessage NextLayout)

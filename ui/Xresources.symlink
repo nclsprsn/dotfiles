@@ -25,10 +25,14 @@ Xft.rgba: rgb
 URxvt.imLocale:        en_EN.UTF-8
 
 ! font (fc-list)
-URxvt*font: xft:Source Code Pro:style=SemiBold:pixelsize=12
-URxvt*boldFont: xft:Source Code Pro:style=Bold:pixelsize=12
-URxvt*italicFont: xft:Source Code Pro:style=ExtraLight,Regular:pixelsize=12
-URxvt*boldItalicFont: xft:Source Code Pro:style=Bold:pixelsize=12
+!URxvt*font: xft:Source Code Pro:style=SemiBold:pixelsize=12
+!URxvt*boldFont: xft:Source Code Pro:style=Bold:pixelsize=12
+!URxvt*italicFont: xft:Source Code Pro:style=ExtraLight,Regular:pixelsize=12
+!URxvt*boldItalicFont: xft:Source Code Pro:style=Bold:pixelsize=12
+URxvt*font: xft:Ubuntu Mono:style=Regular:pixelsize=14
+URxvt*boldFont: xft:Ubuntu Mono:style=Bold:pixelsize=14
+URxvt*italicFont: xft:Ubuntu Mono:style=Italic:pixelsize=14
+URxvt*boldItalicFont: xft:Ubuntu Mono:style=Bold Italic:pixelsize=14
 
 URxvt.letterSpace: -2
 

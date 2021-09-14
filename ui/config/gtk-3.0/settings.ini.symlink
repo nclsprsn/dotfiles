@@ -11,7 +11,8 @@ gtk-theme-name = Arc
 # Fonts
 #------------------------------------------------------------------------------
 
-gtk-font-name = Source Code Pro 9
+#gtk-font-name = Source Code Pro 9
+gtk-font-name = Ubuntu Mono 10.5
 
 
 #------------------------------------------------------------------------------

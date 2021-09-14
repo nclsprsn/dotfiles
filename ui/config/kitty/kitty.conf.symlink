@@ -19,10 +19,15 @@
 # bold_italic_font Source Code Pro Bold Italic for Powerline
 # kitty + list-fonts --psnames
 
-font_family      Source Code Pro SemiBold
-bold_font        Source Code Pro Bold
-italic_font      Source Code Pro SemiBold
-bold_italic_font Source Code Pro Bold
+#font_family      Source Code Pro SemiBold
+#bold_font        Source Code Pro Bold
+#italic_font      Source Code Pro SemiBold
+#bold_italic_font Source Code Pro Bold
+font_family      Ubuntu Mono
+bold_font        Ubuntu Mono Bold
+italic_font      Ubuntu Mono Italic
+bold_italic_font Ubuntu Mono Bold Italic
+
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. By default they are derived automatically, by the OSes
@@ -35,7 +40,8 @@ bold_italic_font Source Code Pro Bold
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 9
+#font_size 9
+font_size 10.5
 
 #: Font size (in pts)
 
@@ -160,7 +166,7 @@ open_url_with default
 #: special value default means to use the operating system's default
 #: URL handler.
 
-copy_on_select no
+copy_on_select yes
 
 #: Copy to clipboard on select. With this enabled, simply selecting
 #: text with the mouse will cause the text to be copied to clipboard.
