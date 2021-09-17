@@ -52,7 +52,7 @@ main = do
 --    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
     args                  = ["-fn", "xft:Ubuntu Mono:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["1", "2", "3", "4", "5", "_"],
+    workspaces            = ["·", ":", "·:", "::", "·::", ":::"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     startupHook           = setWMName "LG3D",
