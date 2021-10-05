@@ -52,7 +52,7 @@ main = do
 --    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
     args                  = ["-fn", "xft:Ubuntu Mono:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
   } $ ewmh defaultConfig {
-    workspaces            = ["·", ":", "·:", "::", "·::", ":::"],
+    workspaces            = ["·", ":", "·:", "::", "·::", ":::", "·:::", "_"],
     modMask               = mod4Mask,
     borderWidth           = 1,
     startupHook           = setWMName "LG3D",
@@ -155,9 +155,9 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "1") | c <- browsers]
-  , [className =? c        --> doF (W.shift "5") | c <- mail]
-  , [className =? c        --> doF (W.shift "5") | c <- notifications]
+  , [className =? c        --> doF (W.shift "·") | c <- browsers]
+  , [className =? c        --> doF (W.shift "·:::") | c <- mail]
+  , [className =? c        --> doF (W.shift "·:::") | c <- notifications]
   , [maybeToDefinite (isFullscreen -?> doFullFloat)]
   ]
 
