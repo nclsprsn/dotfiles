@@ -19,6 +19,7 @@ fi
 if activated_module $DOTFILES_MOD_UI
 then
     alias uif='eval $(ssh-agent) && startx ~/.xinitrc full'
+    alias uif='eval $(ssh-agent) && sway'
     alias uil='eval $(ssh-agent) && startx ~/.xinitrc light'
 fi
 
