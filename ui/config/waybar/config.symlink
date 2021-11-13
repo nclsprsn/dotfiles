@@ -38,7 +38,7 @@
     },
     "temperature": {
         "thermal-zone": 1,
-        "critical-threshold": 52,
+        "critical-threshold": 56,
         "format": "{temperatureC}°C",
     },
     "battery": {
