@@ -18,11 +18,11 @@
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-    //         "1": "",
-             "1": "",
-             "3": "",
-    //         "4": "",
-             "7": "",
+//           "1": "",
+//           "1": "",
+//           "3": "",
+//           "4": "",
+//           "7": "",
            "urgent": "",
            "focused": "",
            "default": ""
@@ -38,7 +38,7 @@
     },
     "temperature": {
         "thermal-zone": 1,
-        "critical-threshold": 69,
+        "critical-threshold": 75,
         "format": "{temperatureC}°C",
     },
     "battery": {
