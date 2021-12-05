@@ -5,16 +5,16 @@
 
 # use X11 for video output, use a wayland and framebuffer as fallbacks
 #vo=opengl-hq,vaapi,xv,wayland,directfb
-vo=vaapi,xv,wayland,directfb
+#vo=vaapi,xv,wayland,directfb
 
 # Use hardware decoding (this might break playback of some h264 files)
-hwdec=vaapi
+#hwdec=vaapi
 
 # use alsa for audio output, choose oss4 as fallback
-ao=alsa,oss
+#ao=alsa,oss
 
 # multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
-vd-lavc-threads=4
+#vd-lavc-threads=4
 
 # Start in fullscreen mode by default.
 #fs=yes
@@ -42,12 +42,12 @@ title="${filename}"
 #vf=expand=::::1:4/3:16
 
 # disable screensaver
-stop-screensaver="yes"
+#stop-screensaver="yes"
 
 # execute a command every 30 seconds
 # useful to disable a non-standard-compliant screensavers and to work around buggy behaviours
 # BE WARNED: to avoid dangerous commands is your responsibility
-heartbeat-cmd="xscreensaver-command -deactivate &" # stop xscreensaver
+#heartbeat-cmd="xscreensaver-command -deactivate &" # stop xscreensaver
 
 # custom heartbeat frequency in seconds
 #heartbeat-interval=600

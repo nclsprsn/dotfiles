@@ -77,6 +77,13 @@ output LVDS-1 resolution 1366x768 position 277,1080
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output VGA-1 resolution 1920x1080 position 1920,0
 
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 4 output LVDS-1
+workspace 7 output VGA-1
+workspace 8 output VGA-1
+workspace 9 output VGA-1
+
 ### Idle configuration
 #
 # Example configuration:
