@@ -27,7 +27,7 @@ set $lock swaylock --clock --indicator --screenshots --effect-scale 0.4 --effect
 
 # Timestamped screenshots, for the whole screen or a region
 set $screenshot grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
-set $screenshot_region grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png
+set $screenshot_region grim -g "$(slurp)" - | swappy -f -
 
 # -----------------------------------------------------------------------------
 # IDLE
