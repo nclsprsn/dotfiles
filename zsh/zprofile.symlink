@@ -50,8 +50,8 @@ export MOZ_ENABLE_WAYLAND=1
 #------------------------------------------------------------------------------
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    # eval $(ssh-agent) && startx ~/.xinitrc full
-    eval $(ssh-agent) && sway
+    eval $(ssh-agent) && startx ~/.xinitrc full
+    #eval $(ssh-agent) && sway
 fi
 
 export PATH="$PATH:~/.dotnet/tools"
