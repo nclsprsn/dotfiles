@@ -172,3 +172,6 @@ gcp() {
 
 alias ssl_certificate='openssl s_client -showcerts -connect'
 
+
+alias webull='LD_LIBRARY_PATH=/opt/WebullDesktop WebullDesktop'
+

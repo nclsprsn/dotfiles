@@ -43,7 +43,7 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export AWS_VAULT_BACKEND=file
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export MOZ_ENABLE_WAYLAND=1
+#export MOZ_ENABLE_WAYLAND=1
 
 #------------------------------------------------------------------------------
 # Run UI if needed
@@ -59,3 +59,4 @@ export PATH="$PATH:~/.dotnet/tools"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
