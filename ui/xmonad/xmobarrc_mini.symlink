@@ -9,7 +9,7 @@ Config { font = "xft:Ubuntu Mono-12"
        , allDesktops = True
        , persistent = True
        , commands = [ Run StdinReader
-                    , Run Date "<fc=#5E8D87>%d-%m</fc> %T" "date" 10
+                    , Run Date "<fc=#5E8D87>%d-%m</fc> <fc=#CC6666>%H</fc>:%M:%S" "date" 10
                     , Run Com "xmobarrc_ip.sh" [
                                                ] "ip" 60
                     , Run Com "xmobarrc_thinkfan.sh" [
