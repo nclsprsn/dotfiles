@@ -111,6 +111,8 @@ fi
 if isArchLinux && isAdmin
 then
     alias pullk='yay -Suuy --noconfirm'
+    alias spullk='yay -Suuy --noconfirm && poweroff -i'
+    alias rpullk='yay -Suuy --noconfirm && reboot -i'
     alias pull='yay -Suuy --noconfirm --ignore=linux-api-headers,linux-headers,linux-lts,linux'
 fi
 
