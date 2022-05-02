@@ -180,3 +180,14 @@ alias webull='LD_LIBRARY_PATH=/opt/WebullDesktop WebullDesktop'
 
 alias ssh='TERM=xterm ssh'
 
+alias k='kubectl'
+alias kg='kubectl get'
+alias kgn='kubectl get nodes'
+alias kgp='kubectl get pods'
+alias kd='kubectl describe'
+alias krm='kubectl delete'
+alias krmf='kubectl delete -f'
+alias kc='kubectl create -f'
+alias ka='kubectl apply -f'
+alias kl='kubectl logs'
+
