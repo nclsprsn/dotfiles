@@ -36,8 +36,15 @@ Config { font = "xft:Ubuntu Mono-12"
                                    , "-m", "#81A2BE"
                                    , "-h", "#CC6666"
                                    ] 120
+                    , Run CoreTemp [ "--template" , "<core0>/<core1>/<core2>"
+                                   , "--Low"      , "50"        -- units: °C
+                                   , "--High"     , "65"        -- units: °C
+                                   , "--low"      , "#4d4d4d"
+                                   , "--normal"   , "#81A2BE"
+                                   , "--high"     , "#CC6666"
+                                   ] 50
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %battery% • %dynnetwork% • %ip% • %date% %thinkfan%"
+       , template = " %StdinReader% }{ %battery%  • %dynnetwork% • %ip% • %date% • %coretemp% %thinkfan%"
        }
