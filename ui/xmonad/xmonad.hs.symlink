@@ -49,9 +49,8 @@ main = do
   nScreens   <- countScreens
   t          <- mapM (spawnPipe . xmobarCommandTop) [0 .. nScreens-1]
   xmonad $ withUrgencyHook dzenUrgencyHook {
---    args                  = ["-fn", "xft:Source Code Pro:style=SemiBold:pixelsize=9", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
     args                  = ["-fn", "xft:Ubuntu Mono:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
-  } $ ewmh defaultConfig {
+  } . docks $ def {
     workspaces            = ["·", ":", "·:", "::", "·::", ":::", "·:::", "_"],
     modMask               = mod4Mask,
     borderWidth           = 1,
@@ -61,7 +60,6 @@ main = do
     terminal              = "kitty",
     manageHook            = manageHook',
     layoutHook            = layoutHook',
-    handleEventHook       = handleEventHook defaultConfig <+> docksEventHook,
     logHook               = mapM_ dynamicLogWithPP $ zipWith myXmobarPP t [0..nScreens],
     keys                  = keys'
 }
@@ -117,7 +115,7 @@ customLayout = avoidStrutsOn[U, D]
     spacedTabbed = named "Spacing Tabbed" $ spacing 4 $ myTabbed
     myOthers = spaced ||| noBorders Full ||| spacedMirrorTiled ||| spacedTabbed
     myWww = noBorders Full ||| spaced ||| smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders (myTabbed) ||| ((mastered 0.05 0.5) $ noBorders (myTabbed)) ||| spiral (6/7)
-    myTabbed = tabbed shrinkText defaultTheme {
+    myTabbed = tabbed shrinkText def {
       fontName = "xft:Source Code Pro:style=SemiBold:pixelsize=9",
       activeColor = "#4D4D4D",
       activeTextColor = "#B294BB",
@@ -148,7 +146,7 @@ manageDialogs = checkDialog --> doFloat
 -------------------- managehook --------------------
 
 manageHook' :: ManageHook
-manageHook' = manageHook defaultConfig <+> manageDocks <+> manageMenus <+> manageDialogs <+> myManageHook
+manageHook' = manageHook def <+> manageDocks <+> manageMenus <+> manageDialogs <+> myManageHook
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
