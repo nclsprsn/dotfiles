@@ -11,7 +11,7 @@ if [[ $ip == *":"* ]]; then
   filteredIp=`echo $ip | awk -F ':' '{print $1"::::::"$7":"$8}'`
 fi
 
-location=`echo $cloudflare | awk -F"[ =]" '{printf "%s",$18}'`
+location=`echo $cloudflare | awk -F"[ =]" '{printf "%s",$20}'`
 
 echo $filteredIp $location
 
