@@ -163,6 +163,7 @@ alias gd='git diff'
 alias gco='git checkout '
 alias gpu='git push -u'
 alias gp='git pull'
+alias gcmainp='git checkout main'
 
 gcap() {
     ga -A && gc $1 && git push

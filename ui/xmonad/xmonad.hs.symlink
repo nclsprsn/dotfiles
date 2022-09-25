@@ -50,7 +50,7 @@ main = do
   t          <- mapM (spawnPipe . xmobarCommandTop) [0 .. nScreens-1]
   xmonad $ withUrgencyHook dzenUrgencyHook {
     args                  = ["-fn", "xft:Ubuntu Mono:style=Regular:pixelsize=10", "-bg", "#DC6268", "-fg", "#212121", "-xs", "1"]
-  } . docks $ def {
+  } . docks $ ewmh def {
     workspaces            = ["·", ":", "·:", "::", "·::", ":::", "·:::", "_"],
     modMask               = mod4Mask,
     borderWidth           = 1,
@@ -153,7 +153,6 @@ myManageHook = composeAll . concat $
   [ [className =? ccf      --> doFloat | ccf <- myFloats]
   , [title =? t            --> doCenterFloat | t <- myOtherFloats]
   , [className =? r        --> doIgnore | r <- myIgnores]
-  , [className =? c        --> doF (W.shift "·") | c <- browsers]
   , [className =? c        --> doF (W.shift "·:::") | c <- mail]
   , [className =? c        --> doF (W.shift "·:::") | c <- notifications]
   , [maybeToDefinite (isFullscreen -?> doFullFloat)]
@@ -167,7 +166,7 @@ myManageHook = composeAll . concat $
     videos = ["vdpau", "MPlayer", "Vlc", "Smplayer", "mpv", "Spotify"]
     navigation = ["Nautilus", "Spacefm","Nemo"]
     mail = ["Thunderbird"]
-    notifications = ["Slack"]
+    notifications = ["Slack", "Trello"]
 
 -------------------- keybinds --------------------
 
@@ -265,4 +264,5 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- program control
   [ ((0,   xF86XK_MonBrightnessUp       ), safeSpawn "xbacklight" ["-inc", "10", "-time", "1", "-steps", "1"])
   , ((0,   xF86XK_MonBrightnessDown     ), safeSpawn "xbacklight" ["-dec", "10", "-time", "1", "-steps", "1"])
+  , ((modMask,               0xffc1     ), safeSpawn "flameshot" ["gui"])
   ]
