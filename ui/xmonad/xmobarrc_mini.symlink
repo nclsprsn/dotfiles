@@ -12,8 +12,6 @@ Config { font = "xft:Ubuntu Mono-12"
                     , Run Date "<fc=#5E8D87>%d-%m</fc> <fc=#94A65D>%H</fc>:%M:%S" "date" 10
                     , Run Com "xmobarrc_ip.sh" [
                                                ] "ip" 60
-                    , Run Com "xmobarrc_thinkfan.sh" [
-                                               ] "thinkfan" 60
                     , Run DynNetwork [ "--Low",        "1024000"
                                      , "--High",       "5120000"
                                      , "--low",        "#4D4D4D"
@@ -36,15 +34,8 @@ Config { font = "xft:Ubuntu Mono-12"
                                    , "-m", "#81A2BE"
                                    , "-h", "#CC6666"
                                    ] 120
-                    , Run CoreTemp [ "--template" , "<core0>/<core1>/<core2>"
-                                   , "--Low"      , "50"        -- units: °C
-                                   , "--High"     , "65"        -- units: °C
-                                   , "--low"      , "#4d4d4d"
-                                   , "--normal"   , "#81A2BE"
-                                   , "--high"     , "#CC6666"
-                                   ] 50
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %battery%  • %dynnetwork% • %ip% • %date% • %coretemp% %thinkfan%"
+       , template = " %StdinReader% }{ %battery%  • %dynnetwork% • %ip% • %date% "
        }
