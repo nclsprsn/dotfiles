@@ -262,7 +262,7 @@ keys' conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   ]
   ++
   -- program control
-  [ ((0,   xF86XK_MonBrightnessUp       ), safeSpawn "xbacklight" ["-inc", "10", "-time", "1", "-steps", "1"])
-  , ((0,   xF86XK_MonBrightnessDown     ), safeSpawn "xbacklight" ["-dec", "10", "-time", "1", "-steps", "1"])
+  [ ((0,   xF86XK_MonBrightnessUp       ), safeSpawn "light" ["-A", "5"])
+  , ((0,   xF86XK_MonBrightnessDown     ), safeSpawn "light" ["-U", "5"])
   , ((modMask,               0xffc1     ), safeSpawn "flameshot" ["gui"])
   ]
