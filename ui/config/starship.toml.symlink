@@ -1,2 +1,12 @@
 [username]
 show_always = false
+
+[nodejs]
+disabled=true
+
+[kubernetes]
+disabled=true
+
+[aws]
+disabled=true
+
