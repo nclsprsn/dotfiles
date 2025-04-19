@@ -29,14 +29,12 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 if [ $1 = "full" ]; then
   ~/.dotfiles/ui/bin/composite_manager.sh &
 
-#  kitty -e sh -c "while true; do reset; ls --color=auto /dev/sd*; echo; dfc -t -rootfs,dev,run,tmpfs,dev; sleep 15; done" &
-#  kitty -e htop &
   if [ -f ~/.dotfiles/custom/bin/boot.sh ]; then
     ~/.dotfiles/custom/bin/boot.sh
   fi
 fi
 
-#set the cursor
+# set the cursor
 xsetroot -cursor_name left_ptr
-#start xmonad
+
 exec xmonad
