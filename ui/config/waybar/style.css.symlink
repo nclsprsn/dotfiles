@@ -1,3 +1,22 @@
+@define-color color0  #525252;
+@define-color color1  #B0777B;
+@define-color color2  #94A65D;
+@define-color color3  #E8C98E;
+@define-color color4  #869AA3;
+@define-color color5  #9F98B7;
+@define-color color6  #93A2B9;
+@define-color color7  #D2D1D4;
+@define-color color8  #707070;
+@define-color color9  #AA7E87;
+@define-color color10 #BACD8F;
+@define-color color11 #E0B274;
+@define-color color12 #96A8B7;
+@define-color color13 #A393CE;
+@define-color color14 #9BB7CC;
+@define-color color15 #D6DAC3;
+@define-color background #222426;
+@define-color foreground #D2C5BC;
+
 * {
   border: none;
   border-radius: 0;
@@ -7,22 +26,22 @@
 }
 
 window#waybar {
-  background: rgba(29, 32, 33, 0.9);
+  background: @background;
   border-bottom: 1px solid rgba(235, 219, 178, 0.9);
-  color: #ebdbb2;
+  color: @foreground;
 }
 
 #workspaces button {
   padding: 0 5px;
   background: transparent;
-  color: #ebdbb2;
+  color: @foreground;
   border-bottom: 1px solid transparent;
 }
 
 #workspaces button.focused {
-  background: #ebdbb2;
+  background: @foreground;
   color: #1d2021;
-  border-bottom: 1px solid #ebdbb2;
+  border-bottom: 1px solid @foreground;
 }
 
 #cpu,
@@ -38,24 +57,24 @@ window#waybar {
 }
 
 #battery.charging {
-  color: #689d6a;
+  color: @color2;
 }
 
 #battery.warning:not(.charging) {
-  color: #d79921;
+  color: @color3;
 }
 
 @keyframes blink {
   to {
     background-color: #1d2021;
-    color: #ebdbb2;
+    color: @color1;
   }
 }
 
 #battery.critical:not(.charging) {
-  background: #cc241d;
-  color: #ebdbb2;
-  border-bottom: 1px solid #ebdbb2;
+  background: @color3;
+  color: @color1;
+  border-bottom: 1px solid @color1;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -64,9 +83,9 @@ window#waybar {
 }
 
 #temperature.critical {
-  background: #cc241d;
-  color: #ebdbb2;
-  border-bottom: 1px solid #ebdbb2;
+  background: @color3;
+  color: @color1;
+  border-bottom: 1px solid @color1;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -75,9 +94,9 @@ window#waybar {
 }
 
 #network.disconnected {
-  color: #cc241d;
+  color: @color3;
 }
 
 #pulseaudio.muted {
-  color: #cc241d;
+  color: @color3;
 }
