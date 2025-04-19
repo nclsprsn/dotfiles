@@ -1,9 +1,15 @@
-
+#------------------------------------------------------
+# Better History
+#------------------------------------------------------
+setopt SHARE_HISTORY        # share history between all sessions
+setopt HIST_IGNORE_SPACE    # don't record commands that start with a space
+setopt INC_APPEND_HISTORY   # write to $HISTFILE immediately, not just when exiting the shell
+setopt HIST_IGNORE_ALL_DUPS # remove old duplicates from history
+setopt HIST_VERIFY          # don't execute immediately when picking from history
+HISTSIZE=50000              # store more than the default 10_000 entries
+SAVEHIST=$HISTSIZE          # and also store all these entries in our $HISTFILE
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
 setopt autocd extendedglob nomatch
-setopt HIST_IGNORE_ALL_DUPS
 unsetopt beep notify
 bindkey -e
 
@@ -25,6 +31,12 @@ plugins=(git emoji kubectl history encode64)
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
+
+# use nvim if available
+if [ -x "$(command -v nvim)" ]; then
+    alias vim='nvim'
+    alias v='nvim'
+fi
 
 # Load the bootstrap configuration
 source ~/.dotfiles/config/config.sh
@@ -68,12 +80,8 @@ if [ -f ~/.dotfiles/bash/bash_aliases.symlink ]; then
     . ~/.dotfiles/bash/bash_aliases.symlink
 fi
 
-if [ -f /usr/share/nvm/init-nvm.sh ]; then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/usr/share/nvm/etc/bash_completion" ] && . "/usr/share/nvm/etc/bash_completion"
-    export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
-    alias nvm="unalias nvm; [ -s "/usr/share/nvm/nvm.sh" ] && . "/usr/share/nvm/nvm.sh"; nvm $@"
-fi
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads 
 
 if isStarshipEnabled
 then
