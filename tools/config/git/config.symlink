@@ -1,0 +1,43 @@
+[init]
+	defaultBranch = main
+
+[alias]
+	c = commit -v
+	co = checkout
+	cob = checkout -b
+	coi = !git checkout $(git branch --sort=committerdate | fzf)
+	s = status
+	br = branch
+	d = diff
+	dd = diff --cached
+	l = log --oneline --graph
+	cp = cherry-pick
+	ps = push
+	pl = pull
+	pb = pull --rebase
+
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+
+[core]
+	pager = git-split-diffs --color | less -RFX
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	line-numbers = true
+	navigate = true    # use n and N to move between diff sections
+	light = false      # set to true if you're in a terminal w/ a light background color
+	syntax-theme = ansi
+
+[diff]
+	colorMoved = default
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
