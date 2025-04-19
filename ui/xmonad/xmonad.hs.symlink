@@ -28,7 +28,7 @@ import Foreign.C.Types (CLong)
 import XMonad.Layout.Master
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.Named
+import XMonad.Layout.Renamed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spacing
 import XMonad.Layout.Spiral
