@@ -17,7 +17,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export PAGER='less'
 
 # Various
-export TERM=kitty
+export TERM=xterm-ghostty
 export VISUAL=nvim
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
@@ -38,25 +38,18 @@ export M2=$M2_HOME/bin
 # Add M2 environment variable to your path
 export PATH=$M2:$PATH
 
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
-
-export AWS_VAULT_BACKEND=file
-
 export _JAVA_AWT_WM_NONREPARENTING=1
-#export MOZ_ENABLE_WAYLAND=1
+
+eval $(ssh-agent)
+
+if [ -f ~/.dotfiles/custom/bin/boot.sh ]; then
+    ~/.dotfiles/custom/bin/boot.sh
+fi
 
 #------------------------------------------------------------------------------
 # Run UI if needed
 #------------------------------------------------------------------------------
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-    eval $(ssh-agent) && startx ~/.xinitrc full
-    #eval $(ssh-agent) && sway
+    Hyprland
 fi
-
-export PATH="$PATH:~/.dotnet/tools"
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
