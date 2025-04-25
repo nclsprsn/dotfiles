@@ -6,6 +6,10 @@
 # use X11 for video output, use a wayland and framebuffer as fallbacks
 #vo=opengl-hq,vaapi,xv,wayland,directfb
 #vo=vaapi,xv,wayland,directfb
+vo=gpu-next
+target-colorspace-hint=yes 
+gpu-api=vulkan 
+gpu-context=waylandvk
 
 # Use hardware decoding (this might break playback of some h264 files)
 #hwdec=vaapi

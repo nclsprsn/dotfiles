@@ -46,6 +46,14 @@ if [ -f ~/.dotfiles/custom/bin/boot.sh ]; then
     ~/.dotfiles/custom/bin/boot.sh
 fi
 
+export ENABLE_HDR_WSI=1
+# https://wiki.archlinux.org/title/Vulkan
+export DISABLE_LAYER_AMD_SWITCHABLE_GRAPHICS_1=1
+export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/amd_pro_icd32.json:/usr/share/vulkan/icd.d/amd_pro_icd64.json steam
+
+# For Python Anaconda library
+export CRYPTOGRAPHY_OPENSSL_NO_LEGACY=1
+
 #------------------------------------------------------------------------------
 # Run UI if needed
 #------------------------------------------------------------------------------
