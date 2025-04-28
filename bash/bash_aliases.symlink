@@ -188,3 +188,5 @@ alias kc='kubectl create -f'
 alias ka='kubectl apply -f'
 alias kl='kubectl logs'
 
+alias anaconda-navigator='QT_XCB_GL_INTEGRATION=none anaconda-navigator'
+
