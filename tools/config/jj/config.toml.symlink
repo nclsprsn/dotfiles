@@ -1,0 +1,3 @@
+[ui]
+editor = "vim"
+merge-editor = "vscode"
